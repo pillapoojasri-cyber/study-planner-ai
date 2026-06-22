@@ -379,4 +379,5 @@ Explain everything in a beginner-friendly way using headings and bullet points.
         topic=topic,
         guide=guide
     )
-app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)
