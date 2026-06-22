@@ -1,0 +1,27 @@
+<body>
+
+<div class="edit-container">
+
+    <h1>✏️ Edit Task</h1>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <form method="POST">
+
+        <input type="text" name="task"
+               value="{{ task[1] }}" required>
+
+        <input type="date" name="due_date"
+               value="{{ task[3] }}">
+
+        <input type="time" name="due_time"
+               value="{{ task[4] }}">
+
+        <button type="submit">
+            Update Task
+        </button>
+
+    </form>
+
+</div>
+
+</body>

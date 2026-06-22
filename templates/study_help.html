@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Study Coach</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        .ai-container{
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .topic{
+            color: #4F46E5;
+            margin-bottom: 20px;
+        }
+
+        .guide-box{
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            white-space: pre-wrap;
+            line-height: 1.7;
+        }
+
+        .back-btn{
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #22c55e;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        .back-btn:hover{
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="ai-container">
+
+    <h1>🤖 AI Study Coach</h1>
+
+    <h2 class="topic">{{ topic }}</h2>
+
+    <div class="guide-box">
+        {{ guide }}
+    </div>
+
+    <a href="/home" class="back-btn">
+        ⬅ Back to Home
+    </a>
+
+</div>
+
+</body>
+</html>

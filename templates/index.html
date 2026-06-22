@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STUDY PLANNER</title>
+    <!-- Ensure your style.css is in the static folder -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="top-bar">
+    <h1>📚 Study Planner</h1>
+
+    <a href="/logout" class="logout-btn">
+        Logout
+    </a>
+</div>
+
+    <main class="container">
+        <h1>MY STUDY PLANNER</h1>
+
+        <div class="logo-container">
+    <img src="{{ url_for('static', filename='STUDY PLANNER.avif') }}"
+         alt="Study Planner Logo"
+         class="planner-logo">
+</div>
+
+        <h2 class="welcome-text">
+    Welcome Back, {{ session['username'] }} 👋
+</h2>
+
+        <!-- Dashboard Section -->
+        <div class="streak-box">
+    🔥 Streak: {{ current_streak }}
+</div>
+        <section class="dashboard">
+
+    <div class="stat-card total-card">
+        <h3>📚 Total Tasks</h3>
+        <p>{{ total_tasks }}</p>
+    </div>
+
+    <div class="stat-card completed-card">
+        <h3>✅ Completed</h3>
+        <p>{{ completed_tasks }}</p>
+    </div>
+
+    <div class="stat-card pending-card">
+        <h3>⏳ Pending</h3>
+        <p>{{ pending_tasks }}</p>
+    </div>
+
+</section>
+        <h2>📊 Study Progress</h2>
+
+<div style="width:300px; height:300px; margin:auto;">
+    <canvas id="taskChart"></canvas>
+</div>
+
+        <!-- Input Section -->
+        <section class="input-section">
+            <form method="POST">
+                <input type="text" name="task" placeholder="ENTER TASK" required>
+
+<input type="date" name="due_date">
+
+<input type="time" name="due_time">
+                <button type="submit">ADD TASK</button>
+            </form>
+        </section>
+
+        <!-- Tasks List -->
+        <section class="task-list">
+            <h2>My Tasks</h2>
+            <ul>
+                {% for task in tasks %}
+                <li>
+                    <span class="task-text">
+
+    <strong>{{ task[1] }}</strong>
+
+    <br>
+
+    <small>
+         Due: {{ task[3] }},
+        Time: {{ task[4] }}
+    </small>
+
+    <br>
+
+    <small>
+        {{ '✅ Completed' if task[2] == 1 else '❌ Pending' }}
+    </small>
+
+</span>
+
+                    <div class="task-actions">
+                        {% if task[2] == 0 %}
+                            <a class="task-btn complete" href="/complete/{{ task[0] }}">Complete</a>
+                        {% endif %}
+                        
+                        <a class="task-btn edit" href="/edit/{{ task[0] }}">Edit</a>
+                        <a class="task-btn delete" href="/delete/{{ task[0] }}">Delete</a>
+                        <a class="task-btn study_help" href="/study_help/{{ task[0] }}">🤖 Study Help</a>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+
+<script>
+var tasks = [
+{% for task in tasks %}
+{
+    id: {{ task[0] }},
+    name: "{{ task[1] }}",
+    completed: {{ task[2] }},
+    due_date: "{{ task[3] or '' }}",
+    due_time: "{{ task[4] or '' }}"
+}{% if not loop.last %},{% endif %}
+{% endfor %}
+];
+</script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+const ctx = document.getElementById('taskChart');
+
+new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: ['Completed', 'Pending'],
+        datasets: [{
+            data: [
+                {{ completed_tasks }},
+                {{ pending_tasks }}
+            ]
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'bottom'
+            }
+        }
+    }
+});
+</script>
+</body>
+</html>

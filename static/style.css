@@ -1,0 +1,238 @@
+/* 1. Root Variables: Centralized theme management */
+:root {
+    --primary-color: #27ae60;
+    --primary-hover: #219150;
+    --danger-color: #e74c3c;
+    --bg-overlay: rgba(255, 255, 255, 0.95);
+    --text-color: #333;
+}
+
+/* 2. Global Resets & Body Layout */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: url("study2 back ground.jpeg") no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+}
+/* 3. Main Container: Keeps content centered and readable */
+.container {
+    background: var(--bg-overlay);
+    width: 95%;
+    max-width: 850px;
+    padding: 2rem;
+    margin: 2rem auto;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+.streak-box{
+    display:inline-block;
+    background:white;
+    padding:10px 20px;
+    border-radius:12px;
+    font-size:20px;
+    font-weight:bold;
+    margin:15px 0;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* 4. Dashboard: Uses Flexbox for even spacing */
+.dashboard{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    margin:20px 0;
+}
+
+.stat-card{
+    flex:1;
+    text-align:center;
+    padding:20px;
+    border-radius:15px;
+    color:white;
+    box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
+
+.stat-card h3{
+    margin-bottom:10px;
+    font-size:18px;
+}
+
+.stat-card p{
+    font-size:28px;
+    font-weight:bold;
+}
+
+.total-card{
+    background:#4F46E5;
+}
+
+.completed-card{
+    background:#22C55E;
+}
+
+.pending-card{
+    background:#F59E0B;
+}
+
+/* 5. Input Section */
+.input-section form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 2rem;
+}
+
+input {
+    flex-grow: 1;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+}
+
+input:focus { border-color: var(--primary-color); }
+
+/* 6. List Styling: Clean, card-like rows */
+li{
+    background:white;
+    padding:15px;
+    margin-bottom:15px;
+    border-radius:12px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 4px 8px rgba(0,0,0,0.08);
+}
+
+/* 7. Buttons: Professional hover states and transitions */
+.task-btn{
+    padding:8px 14px;
+    border-radius:8px;
+    text-decoration:none;
+    color:rgb(255, 255, 255);
+    font-size:14px;
+    margin-left:5px;
+    font-weight:500;
+}
+.task-btn.complete { background-color: var(--primary-color); }
+.task-btn.edit { background-color: #3498db; }
+.task-btn.delete { background-color: var(--danger-color); }
+.task-btn:hover { opacity: 0.8; }
+.task-btn.study_help { background-color: var(--primary-color); }
+.top-bar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.logout-btn{
+    background:#ef4444;
+    color:white;
+    text-decoration:none;
+    padding:10px 20px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.logout-btn:hover{
+    opacity:0.9;
+}
+
+/* 8. Responsive adjustments for mobile */
+@media (max-width: 480px) {
+    .dashboard { flex-direction: column; gap: 10px; text-align: center; }
+    .input-section form { flex-direction: column; }
+}
+.ai-container h1{
+    text-align:left;
+}
+.topic{
+    color:#4F46E5;
+    font-weight:bold;
+}
+
+.guide-box{
+    background:#f8f9fa;
+    padding:20px;
+    border-radius:12px;
+    white-space:pre-wrap;
+    line-height:1.8;
+}
+
+.back-btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:10px 20px;
+    background:#22c55e;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+}
+h1{
+    color:#1e293b;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+h2{
+    color:#334155;
+    margin-top:25px;
+}
+.welcome-text{
+    text-align:center;
+    font-size:24px;
+    font-weight:600;
+    color:#1e293b;
+    margin-bottom:20px;
+}
+.edit-container{
+    width:500px;
+    margin:60px auto;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+
+.edit-container input{
+    width:90%;
+    padding:12px;
+    margin:10px 0;
+    border-radius:10px;
+}
+
+.edit-container button{
+    background:#22c55e;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:10px;
+    cursor:pointer;
+}
+.logo-container{
+    text-align:center;
+}
+
+.planner-logo{
+    width:250px;
+    border-radius:15px;
+}
+.input-section button{
+    background:linear-gradient(135deg,#3522c5,#16a34a);
+    color:white;
+    border:none;
+    padding:12px 24px;
+    border-radius:12px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    box-shadow:0 4px 10px rgba(34,197,94,0.3);
+    transition:all 0.3s ease;
+}
+
+.input-section button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 6px 15px rgba(34,197,94,0.4);
+}
