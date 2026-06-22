@@ -12,7 +12,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', system-ui, sans-serif;
-    background: url("study2 back ground.jpeg") no-repeat center center fixed;
+    background: url("static/study2-background.jpeg");
     background-size: cover;
     min-height: 100vh;
 }
