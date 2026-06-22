@@ -1,5 +1,5 @@
 body{
-    background: url("static/study2-background.jpeg") no-repeat center center fixed;
+    background: url("static/study2-background.jpeg");
     background-size: cover;
     font-family:'Segoe UI',sans-serif;
     margin:0;
