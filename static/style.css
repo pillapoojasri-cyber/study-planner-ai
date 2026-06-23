@@ -199,3 +199,70 @@ background:#8b5cf6;
 
     text-decoration:none;
 }
+.subtitle{
+    text-align:center;
+    color:#cbd5e1;
+    margin-top:-10px;
+    margin-bottom:20px;
+}
+
+.section-title{
+    text-align:center;
+    margin:25px 0;
+    color:white;
+}
+
+.chart-container{
+    width:300px;
+    height:300px;
+    margin:20px auto;
+    background:rgba(255,255,255,0.05);
+    padding:20px;
+    border-radius:20px;
+}
+
+.logo-container{
+    text-align:center;
+    margin:20px 0;
+}
+
+.planner-logo{
+    width:180px;
+    border-radius:20px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.3);
+}
+
+.task-card{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+
+    background:#1e293b;
+    padding:18px;
+    border-radius:15px;
+
+    margin-bottom:15px;
+}
+
+.task-card:hover{
+    transform:translateY(-3px);
+    transition:0.3s;
+}
+
+.action-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.task-btn{
+    font-size:14px;
+    font-weight:600;
+}
+
+.welcome-text{
+    text-align:center;
+    color:#93c5fd;
+    margin-bottom:20px;
+}

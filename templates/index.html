@@ -10,6 +10,9 @@
 <body>
 <div class="top-bar">
     <h1>📚 Study Planner</h1>
+    <p class="subtitle">
+    Organize • Track • Achieve
+</p>
 
     <a href="/logout" class="logout-btn">
         Logout
@@ -51,9 +54,8 @@
     </div>
 
 </section>
-        <h2>📊 Study Progress</h2>
-
-<div style="width:300px; height:300px; margin:auto;">
+       <h2 class="section-title">📊 Study Progress</h2>
+<div class="chart-container">
     <canvas id="taskChart"></canvas>
 </div>
 
@@ -71,10 +73,10 @@
 
         <!-- Tasks List -->
         <section class="task-list">
-            <h2>My Tasks</h2>
+            <h2 class="section-title">My Tasks</h2>
             <ul>
                 {% for task in tasks %}
-                <li>
+                <li class="task-card">
                     <span class="task-text">
 
     <strong>{{ task[1] }}</strong>
@@ -94,7 +96,7 @@
 
 </span>
 
-                    <div class="task-actions">
+                    <div class="task-actions action-buttons">
                         {% if task[2] == 0 %}
                             <a class="task-btn complete" href="/complete/{{ task[0] }}">Complete</a>
                         {% endif %}
