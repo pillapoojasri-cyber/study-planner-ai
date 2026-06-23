@@ -23,7 +23,7 @@
         <h1>MY STUDY PLANNER</h1>
 
         <div class="logo-container">
-    <img src="{{ url_for('static', filename='STUDY PLANNER.avif') }}"
+    <img src="{{ url_for('static', filename='STUDY PLANNER.jpeg') }}"
          alt="Study Planner Logo"
          class="planner-logo">
 </div>
@@ -138,6 +138,10 @@ new Chart(ctx, {
             data: [
                 {{ completed_tasks }},
                 {{ pending_tasks }}
+            ],
+            backgroundColor: [
+                '#22c55e',
+                '#f59e0b'
             ]
         }]
     },
@@ -145,7 +149,13 @@ new Chart(ctx, {
         responsive: true,
         plugins: {
             legend: {
-                position: 'bottom'
+                position: 'bottom',
+                labels: {
+                    color: 'white',
+                    font: {
+                        size: 14
+                    }
+                }
             }
         }
     }

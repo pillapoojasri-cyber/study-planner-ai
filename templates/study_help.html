@@ -5,42 +5,62 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
     <style>
-        .ai-container{
-            max-width: 900px;
-            margin: 40px auto;
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
 
-        .topic{
-            color: #4F46E5;
-            margin-bottom: 20px;
-        }
+.ai-container{
+    max-width:900px;
+    margin:40px auto;
 
-        .guide-box{
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 12px;
-            white-space: pre-wrap;
-            line-height: 1.7;
-        }
+    background:#1e293b;
 
-        .back-btn{
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: #22c55e;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-        }
+    padding:30px;
 
-        .back-btn:hover{
-            opacity: 0.9;
-        }
-    </style>
+    border-radius:20px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+
+    color:white;
+}
+
+.topic{
+    color:#60a5fa;
+    margin-bottom:20px;
+}
+
+.guide-box{
+    background:#334155;
+
+    color:white;
+
+    padding:20px;
+
+    border-radius:12px;
+
+    white-space:pre-wrap;
+
+    line-height:1.8;
+}
+
+.back-btn{
+    display:inline-block;
+
+    margin-top:20px;
+
+    padding:10px 20px;
+
+    background:#3b82f6;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:8px;
+}
+
+.back-btn:hover{
+    opacity:0.9;
+}
+
+</style>
 </head>
 
 <body>
@@ -51,10 +71,7 @@
 
     <h2 class="topic">{{ topic }}</h2>
 
-    <div class="guide-box">
-        {{ guide }}
-    </div>
-
+    <pre class="guide-box">{{ guide }}</pre>
     <a href="/home" class="back-btn">
         ⬅ Back to Home
     </a>
