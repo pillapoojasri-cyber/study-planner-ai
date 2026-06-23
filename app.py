@@ -381,5 +381,52 @@ Explain everything in a beginner-friendly way using headings and bullet points.
         topic=topic,
         guide=guide
     )
+@app.route("/ai_planner",
+           methods=["GET","POST"])
+def ai_planner():
+
+    plan = None
+
+    if request.method == "POST":
+
+        subject = request.form["subject"]
+        exam_date = request.form["exam_date"]
+        hours = request.form["hours"]
+
+        response = client.chat.completions.create(
+            model="llama-3.3-70b-versatile",
+
+            messages=[
+                {
+                    "role":"user",
+                    "content":f"""
+Create a detailed study plan.
+
+Subject: {subject}
+
+Exam Date: {exam_date}
+
+Hours Per Day: {hours}
+
+Create a day-by-day schedule.
+
+Include:
+- Topics
+- Revision
+- Practice
+- Mock Test
+
+Beginner friendly.
+"""
+                }
+            ]
+        )
+
+        plan = response.choices[0].message.content
+
+    return render_template(
+        "ai_planner.html",
+        plan=plan
+    )
 if __name__ == "__main__":
     app.run(debug=True)
