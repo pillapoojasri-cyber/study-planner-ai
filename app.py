@@ -9,6 +9,9 @@ client = Groq(
 from datetime import date, timedelta
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY")
+@app.route("/")
+def landing():
+    return render_template("landing.html")
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     if request.method == "POST":
@@ -71,8 +74,7 @@ def signup():
             )
 
     return render_template("signup.html")
-@app.route("/", methods=["GET", "POST"])
-@app.route("/login", methods=["GET", "POST"])
+@app.route("/login", methods=["GET","POST"])
 def login():
 
     if request.method == "POST":
